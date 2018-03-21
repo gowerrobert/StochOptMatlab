@@ -20,7 +20,7 @@ setuppaths
 opts.grad_type = 'SVRG';         % SVRG  SGD
 opts.max_iterations = 10^10;
 opts.regularizor ='L2';  % huber or L2
-opts.hubermu = 1.0e-4;
+opts.hubermu = 1.0e-3;
 opts.regulatrizor_parameter =  '1/num_data';% 'normalized';%'1/num_data';    % '1/num_data' or 1   10^(-6);
 opts.LIBSVMdata ='madelon';  %mushrooms, liver-disorders  a9a  w8a  covtype.libsvm.binary   gisette_scale  real-sim   SUSY    rcv1_train.binary  news20.binary  HIGGS  SUSY  epsilon_normalized        
 % Stochastic subsampling of gradients and Hessian-vector products 
@@ -28,23 +28,15 @@ opts.LIBSVMdata ='madelon';  %mushrooms, liver-disorders  a9a  w8a  covtype.libs
 datapath = './tests/logistic/LIBSVM_data'; 
 [opts,f_eval,g_eval,Hess_opt ] =  load_logistic('logistic',datapath,0,opts);
 %%
-n = length(opts.x0);    
-M_big = ceil(sqrt(n));                 % Memory size
-M_med = ceil(n^(1/3)); 
-M_small = ceil(n^(1/4)); 
-M_very_small = ceil(n^(1/5)); 
-M = M_big;
-S_big = ceil(sqrt(opts.numdata));                 % subsample size
-S_med = ceil(opts.numdata^(1/3)); 
-S_small = ceil(opts.numdata^(1/4)); 
-S_very_small = ceil(opts.numdata^(1/5)); 
+n = length(opts.x0);     
+M = ceil(log(n));   % Memory parameter
 opts.S = ceil(sqrt(opts.numdata));        % Sub sampling size.
 opts.plotting= 1;                           % 1 - record information for plotting, 0 - otherwise
 opts.prnt= 1;                               % 1 - print outer iterations, 0 - otherwise
 opts.totalpasses = 25;
 opts.Timeout =30000;                          % permitted time in seconds
 % opts.metric_reset_method ='descent-angle';  % type of metric reseting criteria: always %descent-angle % never
-opts.use_optimal_step_size =1;
+opts.use_optimal_step_size =1;             %Uses a grid search to determine the stepsize
 OUTPUTS ={};
 problem =opts.LIBSVMdata; %load_problem_parameters;
 opts.Timeout =30000; 

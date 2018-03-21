@@ -63,8 +63,7 @@ while (iteration <= opts.max_iterations)
     end
     x = x+d;
     xdiff = norm(d);
-    if(1)
-  %  if(mod(iteration,opts.inner_iterations)==0)
+    if(mod(iteration,opts.inner_iterations)==0)
         f =  f_full(x);%1-accurary_prediction( opts.X, opts.y, x); %f_full(x);
         % Information for plotting
         

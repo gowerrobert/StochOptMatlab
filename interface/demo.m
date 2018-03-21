@@ -14,8 +14,6 @@
 % opts.hubermu =                 A number in [0 1] specifies accuracy of
 %                                pseudo-huber approxamition to the L1 norm where hubermu-> 0 as
 %                                pseudo-huber tends to a L1 regularizor
-% cd /home/robert/Dropbox/Matlab/variableM_stoch/
-% cd /home/s1065527/Dropbox/Matlab/variableM_stoch
 clear all;
 setuppaths
 %% Load Logistic parameters
