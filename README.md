@@ -1,9 +1,9 @@
-# StochOptMatlab
+## StochOptMatlab
 
 Previously called StochBFGS (Stochastic Block BFGS) on Robert M. Gower's webpage
 
 
-# 1. Introduction
+## 1. Introduction
 
 This is a suite of stochastic optimization methods for minimizing an average of functions (empirical risk minimization). This package was created for testing different version of
 stochastic quasi-Newton methods. In particular, the details of on stochastic block BFGS method can be found in:
@@ -16,12 +16,13 @@ method and a stochastic L-BFGS method proposed in [2].
 
 
 
-# 2. Installation and Setup
+## 2. Installation and Setup
 
 Start Matlab and make sure that the working directory is set to the
 main directory of the present package.  At the MATLAB prompt, run
-
-  >> setuppaths
+```Matlab
+  setuppaths
+```
 
 The script adds the appropriate directories in the MATLAB path and runs mex 
 on libsvmread.c, used to load the logistic problems. 
@@ -29,9 +30,11 @@ on libsvmread.c, used to load the logistic problems.
 To test if the installation and setup for the quNac have been 
 completed successfully please run in the MATLAB prompt:
 
-  >> demo
+```Matlab
+  demo
+```
 
-# 3. Repeat tests in paper [1]
+## 3. Repeat tests in paper [1]
 
 WARNING: The following experiments are CPU and memory intensive!
 
@@ -47,7 +50,7 @@ To repeat all experiments in [1],  run the commands
   >>  problems = {    'covtype.libsvm.binary',   'gisette_scale',  'SUSY', 'url_combined',     'HIGGS' , 'epsilon_normalized', 'rcv1_train.binary' } 
   >>  test_problems_opt_step_size(problems)
 
-# 4. References
+## 4. References
 
 [1]   Robert M. Gower, Donald Goldfarb and Peter Richtarik
       Stochastic Block BFGS: Squeezing More Curvature out of Data
@@ -56,22 +59,7 @@ To repeat all experiments in [1],  run the commands
       “A linearly-convergent stochastic L-BFGS algorithm”.
       arXiv:1508.02087v1 (2015).
 
-# 5. License
-
- This program is free software: you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation, either version 3 of the License, or
- (at your option) any later version.
-
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
-
- You should have received a copy of the GNU General Public License
- along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-# 6. Bugs and Comments
+## 5. Bugs and Comments
 
 If you have any bug reports or comments, please feel free to email 
 
