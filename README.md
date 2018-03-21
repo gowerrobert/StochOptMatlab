@@ -1,27 +1,16 @@
-# StochOptMatlab
+## StochOptMatlab
 
-Previously called StochBFGS (Stochastic Block BFGS) on Robert M. Gower's webpage
+## Introduction
 
+This is a suite of matlab code of stochastic optimization methods for minimizing an average of functions (empirical risk minimization).
 
-# 1. Introduction
-
-This is a suite of stochastic optimization methods for minimizing an average of functions (empirical risk minimization). This package was created for testing different version of
-stochastic quasi-Newton methods. In particular, the details of on stochastic block BFGS method can be found in:
-
-[1]   Robert M. Gower, Donald Goldfarb and Peter Richtarik
-      Stochastic Block BFGS: Squeezing More Curvature out of Data, 2016.
-
-For comparisons, this package also includes an implementation of the SVRG 
-method and a stochastic L-BFGS method proposed in [2]. 
-
-
-
-# 2. Installation and Setup
+## Installation and Setup
 
 Start Matlab and make sure that the working directory is set to the
 main directory of the present package.  At the MATLAB prompt, run
-
-  >> setuppaths
+```Matlab
+  setuppaths
+```
 
 The script adds the appropriate directories in the MATLAB path and runs mex 
 on libsvmread.c, used to load the logistic problems. 
@@ -29,25 +18,46 @@ on libsvmread.c, used to load the logistic problems.
 To test if the installation and setup for the quNac have been 
 completed successfully please run in the MATLAB prompt:
 
-  >> demo
+```Matlab
+  demo
+```
 
-# 3. Repeat tests in paper [1]
+## Objective functions implemented
+
+1. logisitc regression + L2 regularizor
+2. logisitc regression + pseudo-huber regularizor
+To add new functions see
+
+```Matlab
+tests/load_logistic.m
+```
+
+## Methods implemented
+
+1. Limited memory stochastic block BFGS [1]
+2. SQN - Stochastic quasi-Newton [2]
+3. SVRG - Stochastic variance reduced gradients
+
+## Repeat tests in paper [1]
 
 WARNING: The following experiments are CPU and memory intensive!
 
 To run the tests carried out in the paper [1] do the following.
 First download seven LIBSVM data files using the following script
 
-  >>  get_LIBSVM_data
+```Matlab
+get_LIBSVM_data
+```
 
 NOTE:  the script 'get_LIBSVM_data' will download approx 1 GB to your local hard drive. If this script fails, please manually download all seven LIBSVM files to the folder StochBFGS/tests/logistic/LIBSVM_data.
 
 To repeat all experiments in [1],  run the commands
+```Matlab
+problems = {    'covtype.libsvm.binary',   'gisette_scale',  'SUSY', 'url_combined',     'HIGGS' , 'epsilon_normalized', 'rcv1_train.binary' } 
+test_problems_opt_step_size(problems)
+```
 
-  >>  problems = {    'covtype.libsvm.binary',   'gisette_scale',  'SUSY', 'url_combined',     'HIGGS' , 'epsilon_normalized', 'rcv1_train.binary' } 
-  >>  test_problems_opt_step_size(problems)
-
-# 4. References
+## References
 
 [1]   Robert M. Gower, Donald Goldfarb and Peter Richtarik
       Stochastic Block BFGS: Squeezing More Curvature out of Data
@@ -55,23 +65,12 @@ To repeat all experiments in [1],  run the commands
 [2]   P. Moritz, R. Nishihara, and M. I. Jordan. 
       “A linearly-convergent stochastic L-BFGS algorithm”.
       arXiv:1508.02087v1 (2015).
+## TODO
 
-# 5. License
+1. Write code for performing grid search to determine stepsizes. The code should search to see if the combined method+problem already has a saved stepsize. If it does, load that stepsize. If it doesn't, calculate the stepsize using a grid search and save the result.
 
- This program is free software: you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation, either version 3 of the License, or
- (at your option) any later version.
 
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
-
- You should have received a copy of the GNU General Public License
- along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-# 6. Bugs and Comments
+## Bugs and Comments
 
 If you have any bug reports or comments, please feel free to email 
 
@@ -80,5 +79,7 @@ If you have any bug reports or comments, please feel free to email
 
 Or make a pull request!
 
-Robert Gower
-30 March 2016
+## Historical note
+
+This package was originally called StochBFGS and was created  for testing different version of
+stochastic quasi-Newton methods. In particular, the details of on stochastic block BFGS method can be found in [1].
