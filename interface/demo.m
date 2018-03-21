@@ -1,10 +1,9 @@
 % demo: is a script file solves problems of the form
-%     min  F(x) + \lambda/2 |x|
-% where F(x) is the logistic loss function and \lambda the regularizor penalty parameter.
+%     min  F(x) + \lambda/2 R(x)
+% where F(x) is the loss function, \lambda the regularizor penalty
+% parameter and R(x) the regularization function.
 % It also sets printing and plotting automatically on and prints all outputs at end.
 %
-% Copyright (c) 2016.  Robert Gower.
-
 %------------------------------------------------------------------------------
 % opts.LIBSVMdata =              a string that specifiecs a LIBSVM binary data file,
 %                                exe, 'covtype.libsvm.binary'

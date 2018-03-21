@@ -1,10 +1,9 @@
-% main: is a script file solves problems of the form
-%     min  F(x) + \lambda/2 |x|
-% where F(x) is the logistic loss function and \lambda the regularizor penalty parameter.
+% demo: is a script file solves problems of the form
+%     min  F(x) + \lambda/2 R(x)
+% where F(x) is the loss function, \lambda the regularizor penalty
+% parameter and R(x) the regularization function.
 % It also sets printing and plotting automatically on and prints all outputs at end.
 %
-% Copyright (c) 2016.  Robert Gower.
-
 %------------------------------------------------------------------------------
 % opts.LIBSVMdata =              a string that specifiecs a LIBSVM binary data file,
 %                                exe, 'covtype.libsvm.binary'
@@ -15,8 +14,6 @@
 % opts.hubermu =                 A number in [0 1] specifies accuracy of
 %                                pseudo-huber approxamition to the L1 norm where hubermu-> 0 as
 %                                pseudo-huber tends to a L1 regularizor
-% cd /home/robert/Dropbox/Matlab/variableM_stoch/
-% cd /home/s1065527/Dropbox/Matlab/variableM_stoch
 clear all;
 setuppaths
 %% Load Logistic parameters

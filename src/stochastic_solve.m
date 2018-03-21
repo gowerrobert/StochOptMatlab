@@ -15,7 +15,7 @@ if(strcmp(opts.grad_type,'SGD'))
      opts.inner_iterations = 1; % length(x0);
 %     opts =calibrate_SGD(x0,f_eval, g_eval, Hess_opt,opts,boot_method, descent_method);
 elseif(strcmp(opts.grad_type,'SVRG'))
-    % setting up SVRG steps
+% setting up SVRG steps
     boot_SVRG; 
 end
 
