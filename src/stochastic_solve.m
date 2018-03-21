@@ -65,8 +65,7 @@ while (iteration <= opts.max_iterations)
     xdiff = norm(d);
     if(mod(iteration,opts.inner_iterations)==0)
         f =  f_full(x);%1-accurary_prediction( opts.X, opts.y, x); %f_full(x);
-        % Information for plotting
-        
+        % Information for plotting     
         if(isnan(f) || isinf(f))
             out.stopping_flag = 'NaN';
             break;

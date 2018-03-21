@@ -4,7 +4,7 @@ try
     opts.problem_title = ['logistic_' opts.regularizor '_'  opts.LIBSVMdata ];
     datafile = [datapath '/' opts.LIBSVMdata];
     [y, X] = libsvmread(datafile);
-%     X = [ones(size(X,1),1) X];
+    X = [ones(size(X,1),1) X];
     sX = size(X);
     opts.n = sX(2);
     opts.numdata = sX(1);
@@ -12,11 +12,8 @@ try
     opts.tol = tol;
     opts.X = X;
     opts.Xt= X';
-    if(sum(y==1)+sum(y==0) == length(y))
-        y = y.*2 -1 ;
-    elseif(sum(y==1) +sum(y==2) == length(y))
-        y = y.*2 -3 ;
-    end
+    y(y == min(y)) = -1;  % Setting 'no' to -1
+    y(y == max(y)) = 1;   % Setting 'yes' to -1  
     if(sum(y==1) +sum(y==-1) ~= length(y))
        display('FAILED TO TRANSFORM y into -1 and 1, ABORT!!!!!');
        return;
