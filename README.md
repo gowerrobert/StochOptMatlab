@@ -3,7 +3,7 @@
 Previously called StochBFGS (Stochastic Block BFGS) on Robert M. Gower's webpage
 
 
-## 1. Introduction
+## Introduction
 
 This is a suite of stochastic optimization methods for minimizing an average of functions (empirical risk minimization). This package was created for testing different version of
 stochastic quasi-Newton methods. In particular, the details of on stochastic block BFGS method can be found in:
@@ -16,7 +16,7 @@ method and a stochastic L-BFGS method proposed in [2].
 
 
 
-## 2. Installation and Setup
+## Installation and Setup
 
 Start Matlab and make sure that the working directory is set to the
 main directory of the present package.  At the MATLAB prompt, run
@@ -34,7 +34,15 @@ completed successfully please run in the MATLAB prompt:
   demo
 ```
 
-## 3. Repeat tests in paper [1]
+## Functions implemented
+
+>logisitc regression + L2 regularizor
+>logisitc regression + pseudo-huber regularizor
+
+## Methods implemented
+
+
+## Repeat tests in paper [1]
 
 WARNING: The following experiments are CPU and memory intensive!
 
@@ -50,7 +58,7 @@ To repeat all experiments in [1],  run the commands
   >>  problems = {    'covtype.libsvm.binary',   'gisette_scale',  'SUSY', 'url_combined',     'HIGGS' , 'epsilon_normalized', 'rcv1_train.binary' } 
   >>  test_problems_opt_step_size(problems)
 
-## 4. References
+## References
 
 [1]   Robert M. Gower, Donald Goldfarb and Peter Richtarik
       Stochastic Block BFGS: Squeezing More Curvature out of Data
@@ -58,8 +66,10 @@ To repeat all experiments in [1],  run the commands
 [2]   P. Moritz, R. Nishihara, and M. I. Jordan. 
       “A linearly-convergent stochastic L-BFGS algorithm”.
       arXiv:1508.02087v1 (2015).
+## 5. TODO
 
-## 5. Bugs and Comments
+
+## 6. Bugs and Comments
 
 If you have any bug reports or comments, please feel free to email 
 
