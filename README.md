@@ -34,13 +34,21 @@ completed successfully please run in the MATLAB prompt:
   demo
 ```
 
-## Functions implemented
+## Objective functions implemented
 
->logisitc regression + L2 regularizor
->logisitc regression + pseudo-huber regularizor
+1. logisitc regression + L2 regularizor
+2. logisitc regression + pseudo-huber regularizor
+To add new functions see
+
+```Matlab
+tests/load_logistic.m
+```
 
 ## Methods implemented
 
+1. Limited memory stochastic block BFGS [1]
+2. SQN - Stochastic quasi-Newton [2]
+3. SVRG - Stochastic variance reduced gradients
 
 ## Repeat tests in paper [1]
 
@@ -49,14 +57,17 @@ WARNING: The following experiments are CPU and memory intensive!
 To run the tests carried out in the paper [1] do the following.
 First download seven LIBSVM data files using the following script
 
-  >>  get_LIBSVM_data
+```Matlab
+get_LIBSVM_data
+```
 
 NOTE:  the script 'get_LIBSVM_data' will download approx 1 GB to your local hard drive. If this script fails, please manually download all seven LIBSVM files to the folder StochBFGS/tests/logistic/LIBSVM_data.
 
 To repeat all experiments in [1],  run the commands
-
-  >>  problems = {    'covtype.libsvm.binary',   'gisette_scale',  'SUSY', 'url_combined',     'HIGGS' , 'epsilon_normalized', 'rcv1_train.binary' } 
-  >>  test_problems_opt_step_size(problems)
+```Matlab
+problems = {    'covtype.libsvm.binary',   'gisette_scale',  'SUSY', 'url_combined',     'HIGGS' , 'epsilon_normalized', 'rcv1_train.binary' } 
+test_problems_opt_step_size(problems)
+```
 
 ## References
 
@@ -67,6 +78,8 @@ To repeat all experiments in [1],  run the commands
       “A linearly-convergent stochastic L-BFGS algorithm”.
       arXiv:1508.02087v1 (2015).
 ## 5. TODO
+
+1. Write code for performing grid search to determine stepsizes. The code should search to see if the combined method+problem already has a saved stepsize. If it does, load that stepsize. If it doesn't, calculate the stepsize using a grid search and save the result.
 
 
 ## 6. Bugs and Comments
