@@ -49,7 +49,7 @@ First download seven LIBSVM data files using the following script
 get_LIBSVM_data
 ```
 
-NOTE:  the script 'get_LIBSVM_data' will download approx 1 GB to your local hard drive. If this script fails, please manually download all seven LIBSVM files to the folder StochBFGS/tests/logistic/LIBSVM_data.
+NOTE:  the script 'get_LIBSVM_data' will download approx 1 GB to your local hard drive. If this script fails, please manually download all seven LIBSVM files to the folder ./tests/logistic/LIBSVM_data.
 
 To repeat all experiments in [1],  run the commands
 ```Matlab
