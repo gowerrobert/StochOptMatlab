@@ -1,0 +1,41 @@
+function [opts,f_eval,g_eval,Hess_opt ] =  load_logistic(problem,tol,opts)
+
+%restoredefaultpath; matlabrc
+% cd ../libsvm-3.18
+% %make
+% cd matlab/
+% make
+% addpath('../libsvm-3.18/matlab')
+cd tests/logistic/
+try
+    opts.problem_title = ['logistic\_' opts.regularizor '\_'  opts.LIBSVMdata ];
+    datafile = ['LIBSVM_data/' opts.LIBSVMdata];
+    [y, X] = libsvmread(datafile);
+    sX = size(X);
+    opts.n = sX(2);
+    opts.numdata = sX(1);
+    opts.x0  = zeros(opts.n,1);
+    opts.tol = tol;
+    opts.X = X;
+    opts.y = y;
+catch loaderr
+    display(loaderr.message);display(' FAILED to load logisitc function');
+    cd ../../../
+    f_eval =[];  g_eval =[]; Hess_opt =[];
+    return 
+end
+display(['loaded ' opts.problem_title ' with ' num2str(opts.n) ' features and ' num2str(opts.numdata) ' data' ]);
+
+switch opts.regularizor
+    case 'huber'
+        f_eval =  @(x)(logistic_eval(X,y,x)+opts.regulatrizor_parameter* huber_eval(x,opts.hubermu));
+        g_eval =  @(x)(logistic_grad(X,y,x)+opts.regulatrizor_parameter*huber_grad(x,opts.hubermu));
+        Hess_opt =  @(x,v)(logistic_hessv(X,y,x,v)+ opts.regulatrizor_parameter*huber_hess_kimon(x,opts.hubermu).*v);
+    otherwise %'L2' is the default
+        f_eval =  @(x)(logistic_eval(X,y,x)+opts.regulatrizor_parameter*(0.5)* norm(x)^2);
+        g_eval =  @(x)(logistic_grad(X,y,x)+opts.regulatrizor_parameter.*x);
+        Hess_opt =  @(x,v)(logistic_hessv(X,y,x,v)+ opts.regulatrizor_parameter.*v);
+end
+
+cd ../../
+end
