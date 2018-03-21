@@ -1,20 +1,8 @@
 ## StochOptMatlab
 
-Previously called StochBFGS (Stochastic Block BFGS) on Robert M. Gower's webpage
-
-
 ## Introduction
 
-This is a suite of stochastic optimization methods for minimizing an average of functions (empirical risk minimization). This package was created for testing different version of
-stochastic quasi-Newton methods. In particular, the details of on stochastic block BFGS method can be found in:
-
-[1]   Robert M. Gower, Donald Goldfarb and Peter Richtarik
-      Stochastic Block BFGS: Squeezing More Curvature out of Data, 2016.
-
-For comparisons, this package also includes an implementation of the SVRG 
-method and a stochastic L-BFGS method proposed in [2]. 
-
-
+This is a suite of matlab code of stochastic optimization methods for minimizing an average of functions (empirical risk minimization).
 
 ## Installation and Setup
 
@@ -77,12 +65,12 @@ test_problems_opt_step_size(problems)
 [2]   P. Moritz, R. Nishihara, and M. I. Jordan. 
       “A linearly-convergent stochastic L-BFGS algorithm”.
       arXiv:1508.02087v1 (2015).
-## 5. TODO
+## TODO
 
 1. Write code for performing grid search to determine stepsizes. The code should search to see if the combined method+problem already has a saved stepsize. If it does, load that stepsize. If it doesn't, calculate the stepsize using a grid search and save the result.
 
 
-## 6. Bugs and Comments
+## Bugs and Comments
 
 If you have any bug reports or comments, please feel free to email 
 
@@ -91,5 +79,7 @@ If you have any bug reports or comments, please feel free to email
 
 Or make a pull request!
 
-Robert Gower
-30 March 2016
+## Historical note
+
+This package was originally called StochBFGS and was created  for testing different version of
+stochastic quasi-Newton methods. In particular, the details of on stochastic block BFGS method can be found in [1].
