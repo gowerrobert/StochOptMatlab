@@ -74,6 +74,7 @@ test_problems_opt_step_size(problems)
 ```
 which is used to determine stepsize using a grid search. The code should search to see if the combined method+problem already has a saved stepsize. If it does, load that stepsize. If it doesn't, calculate the stepsize using a grid search and save the result.
 
+2. Consider implementing option to perform standard preproccessing of the data. In particular, centering and scaling of the feature matrix X.
 
 ## Bugs and Comments
 
