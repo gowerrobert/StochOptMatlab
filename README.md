@@ -67,7 +67,12 @@ test_problems_opt_step_size(problems)
       arXiv:1508.02087v1 (2015).
 ## TODO
 
-1. Write code for performing grid search to determine stepsizes. The code should search to see if the combined method+problem already has a saved stepsize. If it does, load that stepsize. If it doesn't, calculate the stepsize using a grid search and save the result.
+1. Improve the grid search function 
+
+```Matlab
+./src/optimal_step_size
+```
+which is used to determine stepsize using a grid search. The code should search to see if the combined method+problem already has a saved stepsize. If it does, load that stepsize. If it doesn't, calculate the stepsize using a grid search and save the result.
 
 
 ## Bugs and Comments
