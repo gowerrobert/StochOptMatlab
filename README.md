@@ -79,7 +79,6 @@ which is used to determine stepsize using a grid search. The code should search 
 
 If you have any bug reports or comments, please feel free to email 
 
-  Robert Gower <r.m.gower@sms.ed.ac.uk>
   Robert Gower <gowerrobert@gmail.com>
 
 Or make a pull request!
