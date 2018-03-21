@@ -1,8 +1,7 @@
 # StochOptMatlab
 
-
 Previously called StochBFGS (Stochastic Block BFGS) on Robert M. Gower's webpage
----------------------------------------------------------------------------
+
 
 # 1. Introduction
 
@@ -18,7 +17,6 @@ method and a stochastic L-BFGS method proposed in [2].
 
 
 # 2. Installation and Setup
-# =========================
 
 Start Matlab and make sure that the working directory is set to the
 main directory of the present package.  At the MATLAB prompt, run
@@ -34,7 +32,6 @@ completed successfully please run in the MATLAB prompt:
   >> demo
 
 # 3. Repeat tests in paper [1]
-# ============================
 
 WARNING: The following experiments are CPU and memory intensive!
 
@@ -51,7 +48,6 @@ To repeat all experiments in [1],  run the commands
   >>  test_problems_opt_step_size(problems)
 
 # 4. References
-# #==============
 
 [1]   Robert M. Gower, Donald Goldfarb and Peter Richtarik
       Stochastic Block BFGS: Squeezing More Curvature out of Data
@@ -61,7 +57,6 @@ To repeat all experiments in [1],  run the commands
       arXiv:1508.02087v1 (2015).
 
 # 5. License
-# ==========
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -77,7 +72,6 @@ To repeat all experiments in [1],  run the commands
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # 6. Bugs and Comments
-# ==============
 
 If you have any bug reports or comments, please feel free to email 
 
