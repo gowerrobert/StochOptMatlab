@@ -1,7 +1,5 @@
 ## StochOptMatlab
 
-## Introduction
-
 This is a suite of matlab code of stochastic optimization methods for minimizing an average of functions (empirical risk minimization).
 
 ## Installation and Setup
